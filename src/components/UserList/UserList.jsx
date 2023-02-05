@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
-import { selectFilteredContacts } from 'redux/selectors';
+import { deleteContact } from 'redux/contacts/contactsOperations';
+import { selectFilteredContacts } from 'redux/contacts/contactsSelectors';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
 
 import scss from './UserList.module.scss';
 
