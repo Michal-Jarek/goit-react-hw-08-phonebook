@@ -1,0 +1,20 @@
+.button {
+  margin-left: 20px;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgba(28, 98, 189, 0.39);
+    cursor: pointer;
+  }
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

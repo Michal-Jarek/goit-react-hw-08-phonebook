@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px 15px;
+}
+
+.input {
+  font-size: 24px;
+  padding: 4px 8px;
+  flex-grow: 1;
+}
+.label {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  align-self: center;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgba(28, 98, 189, 0.39);
+    cursor: pointer;
+  }
+}
