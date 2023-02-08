@@ -12,11 +12,10 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = await state.auth.token;
-    console.log(persistedToken);
-     if (persistedToken === null) {
-       // If there is no token, exit without performing any request
-       return thunkAPI.rejectWithValue('Unable to fetch user');
-     }
+    if (persistedToken === null) {
+      // If there is no token, exit without performing any request
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
       setAuthHeader(persistedToken);
       const response = await axios.get('/contacts');
@@ -49,7 +48,7 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    
+
     try {
       setAuthHeader(persistedToken);
       const response = await axios.delete(`/contacts/${contactId}`);
