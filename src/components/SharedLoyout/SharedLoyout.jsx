@@ -1,10 +1,22 @@
-import { Loader } from 'components/Loader/Loader';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Outlet, NavLink } from 'react-router-dom';
 import { Suspense } from 'react';
+
+import { useAuth } from 'utils/hooks/useAuth';
+import { refreshUser } from 'redux/auth/authOperations';
+import { Loader } from 'components/Loader/Loader';
 import scss from './SharedLoyout.module.scss';
 
-export const SharedLayout = () => (
-  <>
+export const SharedLayout = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return(<>
     <header className={scss.page_header}>
       <div className={scss.container}>
         <nav className={scss.header_navigation}>
@@ -31,9 +43,9 @@ export const SharedLayout = () => (
     <main>
       <div className={scss.container}>
         <Suspense fallback={<Loader />}>
-          <Outlet />
+         {isRefreshing ? (<b>Refreshing user...</b>) :( <Outlet />)}
         </Suspense>
       </div>
     </main>
-  </>
-);
+  </>)
+};

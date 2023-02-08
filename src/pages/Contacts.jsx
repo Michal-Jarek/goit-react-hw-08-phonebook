@@ -1,30 +1,29 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Helmet } from 'react-helmet';
-// import { TaskList } from 'components/TaskList/TaskList';
-// import { TaskEditor } from 'components/TaskEditor/TaskEditor';
-// import { fetchTasks } from 'redux/tasks/operations';
-// import { selectLoading } from 'redux/tasks/selectors';
+import UserList from 'components/UserList/UserList';
+import Section from 'components/Section/Section';
+import SignForm from 'components/SignForm/SignForm';
+import Filter from 'components/Filter/Filter';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/authOperations';
 
 const ContactsPage = () => {
-  return <div>JESTEŚ W CONTACTS</div>;
-  //   const dispatch = useDispatch();
-  //   const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(fetchTasks());
-  //   }, [dispatch]);
+  return (
+    <div>
+      <Section title="Phonebook">
+        <SignForm />
+      </Section>
 
-  //   return (
-  //     <>
-  //       <Helmet>
-  //         <title>Your tasks</title>
-  //       </Helmet>
-  //       <TaskEditor />
-  //       <div>{isLoading && 'Request in progress...'}</div>
-  //       <TaskList />
-  //     </>
-  //   );
+      <Section title="Contacts">
+        <UserList>
+          <Filter />
+        </UserList>
+      </Section>
+      <button type="button" onClick={() => dispatch(logOut())}>
+        Click to logout
+      </button>
+    </div>
+  );
 };
 
 export default ContactsPage;

@@ -1,6 +1,7 @@
-import { SharedLayout } from 'components/SharedLoyout/SharedLoyout';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+import { SharedLayout } from 'components/SharedLoyout/SharedLoyout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
@@ -26,13 +27,13 @@ export const Router = () => (
       <Route
         path="/login"
         element={
-          <RestrictedRoute redirectTo="/login" component={<LoginPage />} />
+          <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
         }
       />
       <Route
         path="/contacts"
         element={
-          <PrivateRoute redirectTo="/contacts" component={<ContactsPage />} />
+          <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
         }
       />
       <Route path="*" element={<HomePage />} />

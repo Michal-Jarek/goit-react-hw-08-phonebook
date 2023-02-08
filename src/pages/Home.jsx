@@ -1,3 +1,5 @@
+import { useAuth } from 'utils/hooks/useAuth';
+
 const styles = {
   container: {
     minHeight: 'calc(100vh - 50px)',
@@ -13,10 +15,12 @@ const styles = {
 };
 
 export default function Home() {
+  const { user } = useAuth();
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        Task manager welcome page{' '}
+        Contact manager welcome {user.name || "a new user"} 
         <span role="img" aria-label="Greeting icon">
           💁‍♀️
         </span>
