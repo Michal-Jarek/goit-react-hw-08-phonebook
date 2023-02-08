@@ -27,7 +27,6 @@ const SignForm = () => {
       return;
     }
     dispatch(addContact({ name, phone }));
-    console.log(`Signed up as: ${name}`);
     reset();
   };
 
