@@ -24,6 +24,7 @@ export default function Home() {
         <span role="img" aria-label="Greeting icon">
           💁‍♀️
         </span>
+        
       </h1>
     </div>
   );
